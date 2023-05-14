@@ -29,10 +29,10 @@ def convert_dcm_to_jpeg(dcm_folder, output_folder):
         print(f"File successfully converted to JPEG: {output_path}")
 
 
-def choose_output_folder():
+def choose_folder(title):
     root = Tk()
     root.withdraw()
-    folder_path = filedialog.askdirectory()
+    folder_path = filedialog.askdirectory(title=title)
     root.destroy()
     return folder_path
 
@@ -42,4 +42,4 @@ dcm_folder_path = r"files\V_bolt"
 
 
 if __name__ == "__main__":
-    convert_dcm_to_jpeg(dcm_folder_path, choose_output_folder())
+    convert_dcm_to_jpeg(choose_folder('Сhoose files folder'), choose_folder('Сhoose output folder'))
